@@ -16,24 +16,24 @@ let carTwo =
       TopSpeed = 490.1 }
 
 
-let race (carOne: Car) (carTwo: Car) =
+let raceTheCars (carOne: Car) (carTwo: Car) =
     // Pattern match the potential race outcomes.
-    let raceOutcome race =
-        match race with
+    let raceOutcome announce =
+        match announce with
         | ("Ferrari") -> printfn "Ferrari wins!"
         | ("McLaren") -> printfn "The McLaren won!"
         | ("Tie!") -> printfn "It was a tie!"
         | _ -> printfn "Invalid result."
 
     // The race logic.
-    let racing =
+    let winner =
         if (carOne.TopSpeed > carTwo.TopSpeed) then carOne.Make
         elif (carOne.TopSpeed < carTwo.TopSpeed) then carTwo.Make
         else "Tie!"
 
-    raceOutcome racing
+    raceOutcome winner
 
 [<EntryPoint>]
 let main _ =
-    race carOne carTwo
+    raceTheCars carOne carTwo
     0 // return an integer exit code
