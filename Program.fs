@@ -15,19 +15,22 @@ let carTwo =
       Model = "F1"
       TopSpeed = 490.1 }
 
-let raceTheCars (carOne: Car) (carTwo: Car): unit =
+let raceTheCars (carOne: Car) (carTwo: Car) : unit =
     // The race logic.
     let winner =
-        if (carOne.TopSpeed > carTwo.TopSpeed) then carOne.Make
-        elif (carOne.TopSpeed < carTwo.TopSpeed) then carTwo.Make
-        else "Tie!"
+        if (carOne.TopSpeed > carTwo.TopSpeed) then
+            carOne.Make
+        elif (carOne.TopSpeed < carTwo.TopSpeed) then
+            carTwo.Make
+        else
+            "Tie!"
 
     // Pattern match the potential race outcomes.
     let raceOutcome announce =
         match announce with
-        | ("Ferrari") -> printfn "Ferrari wins!"
-        | ("McLaren") -> printfn "The McLaren won!"
-        | ("Tie!") -> printfn "It was a tie!"
+        | "Ferrari" -> printfn "Ferrari wins!"
+        | "McLaren" -> printfn "The McLaren won!"
+        | "Tie!" -> printfn "It was a tie!"
         | _ -> printfn "Invalid result."
 
     raceOutcome winner
